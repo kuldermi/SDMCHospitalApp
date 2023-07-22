@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Page</title>
+</head>
+<body>
+<form method="post">
+<h1>Do you want to delete {{patient.firstName}} ? </h1>
+<input type="submit" name="Submit" value="Confirm">
+  <a href="/">Cancel</a>
+  {% csrf_token %}
+ </form>
+</body>
+</html>

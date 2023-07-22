@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient List</title>
+</head>
+<body>
+{% if patient_list %}
+<table border = "2">
+  <thead>
+  <th>Patient's first Name</th>
+  <th>Patient's last Name</th>
+  <th>Patient's Age</th>
+  </thead>
+  {% for patient in patient_list %}
+  <tr>
+    <td>{{patient.id}}</td>
+    <td>{{patient.firstName}}</td>
+    <td>{{patient.age}}</td>
+    <td><a href="/update/{{patient.id}}">Update Patient info</a></td>
+    <td><a href="/delete/{{patient.id}}">Delete Patient info</a></td>
+    <td><a href="/add_data/{{patient.id}}">Add Clinical Data</a></td>
+    <td><a href="/analyze_data/{{patient.id}}">Analyze Data</a></td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<p> No records found </p>
+{% endif %}
+<a href="/add">Add patient</a>
+
+</body>
+</html>

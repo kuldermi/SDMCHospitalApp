@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Patient's Clinical Data </title>
+</head>
+<body>
+<h1>Add Patient's Clinical Data:</h1>
+<h2>Patient's info :</h2>
+<table border = "2">
+  <thead>
+  <th>Patient's First Name</th>
+  <th>Patient's last Name</th>
+  <th>Patient's Age</th>
+  </thead>
+  <tr>
+    <td>{{patient_data.firstName}}</td>
+    <td>{{patient_data.lastName}}</td>
+    <td>{{patient_data.age}}</td>
+  </tr>
+
+</table>
+
+<h1>Clinical Data</h1>
+<form method="post">
+  <table>
+    {{form.as_table}}
+    {% csrf_token %}
+  </table>
+  <br> <br>
+  <input type="submit" name=" Submit" value="Submit">
+</form>
+</body>
+</html>

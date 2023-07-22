@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analyze patient's clinical data</title>
+</head>
+<h1>Analyze patient's clinical data</h1>
+<body>
+<table border="2">
+  <thead>
+  <th>Component Name</th>
+  <th>Component Value</th>
+  <th>Measured date time</th>
+  </thead>
+  {% for data in patient_clinical_data %}
+  <tr>
+    <td>{{data.componentName}}</td>
+    <td>{{data.componentValue}}</td>
+    <td>{{data.measuredDateTime}}</td>
+  </tr>
+  {% endfor %}
+</table>
+</body>
+</html>
