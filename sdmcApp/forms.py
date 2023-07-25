@@ -10,3 +10,7 @@ class ClinicalForm(forms.ModelForm):
         model= models.ClinicalData
         fields= "__all__"
 
+class DoctorForm(forms.ModelForm):
+    class Meta:
+        model= models.Doctor
+        fields= '__all__'

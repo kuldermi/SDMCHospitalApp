@@ -19,9 +19,31 @@ class DeletePatient(DeleteView):
     model= models.Patient
     success_url = reverse_lazy("ListView")
 
+#CRUD operation for Doctors
+class DoctorList(ListView):
+    model= models.Doctor
+
+class AddDoctor(CreateView):
+    model= models.Doctor
+    fields = '__all__'
+    success_url = reverse_lazy('doctorList')
+class UpdateDoctor(UpdateView):
+    model = models.Doctor
+    fields = '__all__'
+    success_url = reverse_lazy('doctorList')
+
+class DeleteDoctor(DeleteView):
+    model= models.Doctor
+    fields= '__all__'
+    success_url = reverse_lazy('doctorList')
+#Add doctor to patients
+# def doctorPatientlink(request, )
+
 #Add Patient clinical data to patient
 def add_data(request, **kwargs):
     patient_data= models.Patient.objects.get(id = kwargs["pk"])
+    patient_data_name= patient_data._meta.fields[1].name
+    patient_object_val= getattr(patient_data,patient_data_name )
     form= forms.ClinicalForm()
     if request.method == 'POST':
         form = forms.ClinicalForm(request.POST)

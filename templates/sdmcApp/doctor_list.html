@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctors list</title>
+</head>
+<body>
+<h2>Doctor's List: </h2>
+{% if doctor_list %}
+<table border = "2">
+    <thead>
+    <th>Doctor's First Name</th>
+    <th>Doctor's Last Name </th>
+    <th>Doctor's Email Address</th>
+    <th>Doctor's Mobile Number</th>
+    </thead>
+    {% for doctor in doctor_list %}
+    <tr>
+        <td>{{doctor.firstName}}</td>
+        <td>{{doctor.lastName}}</td>
+        <td>{{doctor.email}}</td>
+        <td>{{doctor.mobile}}</td>
+        <td><a href="/doctors/add/">Add Doctor</a></td>
+        <td><a href="/doctors/update/{{doctor.id}}">Update Doctor</a></td>
+        <td><a href="/doctors/delete/{{doctor.id}}">Delete doctor</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No records found</p>
+{% endif %}
+</body>
+</html>
